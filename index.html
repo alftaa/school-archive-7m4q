@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="description" content="فهرس أرشيف ومستودعات ابتدائية أم منيع الأنصارية">
+  <title>الأرشيف والمستودعات | ابتدائية أم منيع الأنصارية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body dir="rtl">
+  <!--
+  THESIS: البحث هو باب الأرشيف؛ نرفض لوحة التحكم المزدحمة ونفتح مباشرة على فهرس المدرسة.
+  OWN-WORLD: أبيض ورقي، بنفسجي المدرسة، برتقالي المصباح، رمادي الملفات، وفواصل أرشيف هندسية.
+  STORY: ترى الموظفة المستودعات، تكتب ما تتذكره، ثم تصل للسجل وفترة حفظه فورًا.
+  FIRST VIEWPORT: شعار المدرسة والعنوان أعلى اليمين، الوزارة أعلى اليسار، وحقل البحث العريض يسبق فواصل المستودعات.
+  FORM: فهرس مدرسي رقمي؛ الاتجاه الرابع؛ seed e3acf130.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+  -->
+  <a class="skip-link" href="#archive">انتقلي إلى المستودعات</a>
+
+  <header class="site-header">
+    <div class="identity">
+      <img class="school-logo" src="assets/school-logo.png" alt="شعار ابتدائية أم منيع الأنصارية">
+      <div class="identity-copy">
+        <p>ابتدائية أم منيع الأنصارية</p>
+        <h1>الأرشيف والمستودعات</h1>
+      </div>
+    </div>
+    <img class="ministry-logo" src="assets/ministry-logo.png" alt="شعار وزارة التعليم">
+  </header>
+
+  <main>
+    <section class="search-stage" aria-labelledby="search-title">
+      <div class="search-copy">
+        <h2 id="search-title">ما السجل الذي تبحثين عنه؟</h2>
+        <p>اكتبي كلمة من الاسم، سنة هجرية، أو وصفًا بسيطًا مثل «غياب» أو «مقصف».</p>
+      </div>
+
+      <div class="search-box" role="search">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+        <label class="sr-only" for="search-input">البحث في الأرشيف</label>
+        <input id="search-input" type="search" autocomplete="off" placeholder="ابحثي في جميع المستودعات…" aria-describedby="search-help" autofocus>
+        <button id="clear-search" class="clear-search" type="button" hidden>مسح</button>
+      </div>
+      <p id="search-help" class="search-help">جرّبي: الاختبارات، ١٤٤٥، التعاميم، مستمر</p>
+
+      <div class="filter-row" aria-label="تصفية المستودعات">
+        <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">الكل</button>
+        <button class="filter" type="button" data-filter="staff" aria-pressed="false">الموظفات</button>
+        <button class="filter" type="button" data-filter="students" aria-pressed="false">الطالبات</button>
+        <button class="filter" type="button" data-filter="exams" aria-pressed="false">الاختبارات</button>
+        <button class="filter" type="button" data-filter="admin" aria-pressed="false">المعاملات</button>
+        <button class="filter" type="button" data-filter="finance" aria-pressed="false">المالية والعُهد</button>
+      </div>
+    </section>
+
+    <section id="archive" class="archive-section" aria-labelledby="archive-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="archive-title">المستودعات</h2>
+          <p id="result-summary" aria-live="polite">٥ مستودعات · ٢٧ سجلًا</p>
+        </div>
+        <button id="show-all" class="text-action" type="button" hidden>عرض كل المستودعات</button>
+      </div>
+
+      <div id="archive-groups" class="archive-groups"></div>
+      <div id="search-results" class="search-results" hidden></div>
+
+      <div id="empty-state" class="empty-state" hidden>
+        <svg aria-hidden="true" viewBox="0 0 64 64"><path d="M12 18h17l5 6h18v26H12V18Z"/><path d="m26 38 4 4 9-10"/></svg>
+        <h3>لم نجد سجلًا بهذه العبارة</h3>
+        <p>جرّبي كلمة أقصر، سنة فقط، أو اختاري أحد المستودعات.</p>
+        <button id="reset-empty" type="button">عرض جميع السجلات</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-rule" aria-hidden="true"><span></span></div>
+    <p class="credit">عمل الإدارية/ ابتسام الفيفي</p>
+    <p class="school-note">ابتدائية أم منيع الأنصارية · مكتب تعليم جنوب مكة</p>
+  </footer>
+</body>
+</html>
+
